@@ -1,0 +1,166 @@
+body {
+    font-family: sans-serif;
+    margin: 0;
+    padding: 1rem;
+  }
+
+  .font-english {
+    font-family: "Playpen Sans Hebrew", cursive;
+    font-optical-sizing: auto;
+    font-weight: 700;
+    font-style: normal;
+  }
+
+  .japanese-casual {
+    font-family: "Yusei Magic", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+  }
+  
+  h1 {
+    text-align: center;
+    margin-bottom: 1.5rem;
+    font-size: 3rem;
+  }
+
+  .site-title {
+    font-size: 2.5rem;
+  }
+
+  form {
+    text-align: center;
+  }
+
+  .center {
+    text-align: center;
+  }
+  
+  .site-header {
+    background-color: #f1e2be;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .naviikon {
+    width: 36px;
+    margin: 6px;
+  }
+
+  .product-list, .shop-list{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+  }
+  
+  .product-card, .shop-card{
+    background: #94c674;
+    border-radius: 12px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.05);
+    padding: 1rem;
+    transition: 0.2s ease;
+  }
+
+  .shop-card-link {
+    text-decoration: none;  /* リンクの下線を消す */
+    color: inherit;         /* リンク色を継承 */
+    display: block;
+  }
+
+  .shop-card:hover {
+    transform: scale(1.03);
+    background-color: #d4aa4f;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+  }
+  
+  .product-card:hover {
+    box-shadow: 0 0 15px rgba(0,0,0,0.1);
+  }
+  
+  .product-card img {
+    width: 100%;
+    height: 160px;
+    object-fit: cover;
+    border-radius: 8px;
+  }
+  
+  .product-info {
+    margin-top: 0.8rem;
+  }
+  
+  .product-name, .shop-name{
+    font-size: 1.1rem;
+    font-weight: bold;
+    margin-bottom: 0.3rem;
+  }
+  
+  .product-price {
+    color: #d63031;
+    font-weight: bold;
+    margin-bottom: 0.3rem;
+  }
+  
+  .product-meta {
+    font-size: 0.9rem;
+    color: #555;
+  }
+
+  .container {
+    display: flex;
+    justify-content: center;
+  }
+
+  /*商品画像に割引重ねて表示*/
+  .product-image-wrapper {
+    position: relative;
+  }
+
+  .product-image-wrapper img {
+    width: 100%;
+    height: 160px;
+    object-fit: cover;
+    border-radius: 8px;
+  }
+
+  .discount-badge {
+    position: absolute;
+    top: 8px;
+    left: 8px;
+    background-color: red;
+    color: rgb(255, 255, 75);
+    padding: 4px 8px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgba(0,0,0,0.3);
+  }
+
+  .admin-login {
+    background-color: #660000; 
+    color: #c1994d;
+    border: none;
+    border-radius: 8px;
+    padding: 0.5rem 1.2rem;
+    font-size: 1rem;
+    font-family: 'Yusei Magic', sans-serif;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+  }
+
+  .admin-login:hover {
+    transform: scale(1.05);
+  }
+
+  .important {
+    color: #d63031;
+  }
+
+  .delete-button {
+    background-color: #d63031;
+    color: black;
+  }
+
+  .edit-delete {
+    display: flex;
+    gap: 1rem;
+    margin-top: 0.5rem;
+  }
