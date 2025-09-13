@@ -54,8 +54,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['delete_id'])) {
       <h2 class="important">※店舗管理者画面</h2>
     </div>
     <nav>
-      <img class="naviikon" src="images/search.svg" alt="search">
-      <img class="naviikon" src="images/menu.svg" alt="menu">
+      <img class="naviikon" src="../assets/images/search.svg" alt="search">
+      <img class="naviikon" src="../assets/images/menu.svg" alt="menu">
     </nav>
   </header>
   <h1 class="japanese-casual"><?= htmlspecialchars($store['name']) ?></h1>

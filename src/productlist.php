@@ -36,8 +36,8 @@ $store = $storeStmt->fetch();
     <h1 class="site-title font-english">SaleStreet</h1>
     <nav>
       <a href="login.php"><button class="admin-login">login</button></a>
-      <img class="naviikon" src="images/search.svg" alt="search">
-      <img class="naviikon" src="images/menu.svg" alt="menu">
+      <img class="naviikon" src="../assets/images/search.svg" alt="search">
+      <img class="naviikon" src="../assets/images/menu.svg" alt="menu">
     </nav>
   </header>
   <h2 class="japanese-casual"><?= htmlspecialchars($store['name'] ?? '店舗') ?>の商品一覧</h2>

@@ -22,31 +22,35 @@ foreach ($stores as $store) {
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playpen+Sans+Hebrew:wght@700&family=Yusei+Magic&display=swap" rel="stylesheet">
   <title>SaleStreet - トップページ</title>
-  <link rel="stylesheet" href="../assets/css/style.css?v=5"/>
+  <link rel="stylesheet" href="../assets/css/style.css?v=1"/>
 </head>
 <body>
   <header class="site-header">
     <h1 class="site-title font-english">SaleStreet</h1>
     <nav>
-      <a href="login.php"><button class="admin-login">login</button></a>
-      <img class="naviikon" src="../assets/images/search.svg" alt="search">
+      <a href="login.php" class="loginbutton"><button class="admin-login">login</button></a>
       <img class="naviikon" src="../assets/images/menu.svg" alt="menu">
     </nav>
   </header>
 
   <main>
     <h2 class="japanese-casual">店舗一覧</h2>
+    <div class="search">
+      <img class="searchikon" src="../assets/images/search.svg" alt="search">
+      <input type="text" id="search" placeholder="住所で絞り込み（例：大阪府）"> 
+    </div>
     <div class="shop-list">
       <?php foreach ($stores as $store): ?>
         <a href="productlist.php?store_id=<?= htmlspecialchars($store['id']) ?>" class="shop-card-link">
           <div class="shop-card">
             <div class="shop-name"><?= htmlspecialchars($store['name']) ?></div>
             <div class="shop-address"><?= htmlspecialchars($store['address']) ?></div>
-            <div class="shop-info">セール中商品：<?= $product_counts[$store['id']] ?>件</div> <!-- 商品数は後で対応 -->
+            <div class="shop-info">セール中商品：<?= $product_counts[$store['id']] ?>件</div> 
           </div>
         </a>
       <?php endforeach; ?>
     </div>
   </main>
+  <script src="../assets/javascript/shopsearch.js"></script>
 </body>
 </html>
