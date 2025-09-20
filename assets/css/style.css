@@ -69,6 +69,7 @@ body {
     gap: 1.5rem;
   }
   
+  /*店舗カード、商品カード*/
   .product-card, .shop-card{
     background: #94c674;
     border-radius: 12px;
@@ -126,7 +127,7 @@ body {
     justify-content: center;
   }
 
-  /*商品画像に割引重ねて表示*/
+  /*割引率を商品画像に重ねて表示*/
   .product-image-wrapper {
     position: relative;
   }
@@ -138,7 +139,9 @@ body {
     border-radius: 8px;
   }
 
+  /*割引率を目立たせる*/
   .discount-badge {
+    /*商品画像に重ねて左上に表示*/
     position: absolute;
     top: 8px;
     left: 8px;
@@ -151,6 +154,7 @@ body {
     box-shadow: 0 0 5px rgba(0,0,0,0.3);
   }
 
+  /*loginボタン*/
   .admin-login {
     background-color: #660000; 
     color: #c1994d;

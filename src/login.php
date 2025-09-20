@@ -11,11 +11,12 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     if ($id === '' || $password === '') {
         $error = "メールアドレスとパスワードを入力してください。";
     } else {
-        // usersテーブルではなくstoresテーブルを使う
+        // storesテーブルから入力されたidの店舗を取得
         $stmt = $pdo->prepare("SELECT * FROM stores WHERE id = ?");
         $stmt->execute([$id]);
         $store = $stmt->fetch();
 
+        // passwordが正しければマイページに遷移
         if ($store && $store["pass"] === $password) {
             $_SESSION["store_id"] = $store["id"];
             header("Location: shopmypage.php");

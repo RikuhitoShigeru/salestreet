@@ -5,6 +5,7 @@ require 'db.php';
 $stmt = $pdo->query("SELECT * FROM stores");
 $stores = $stmt->fetchAll();
 
+// 店舗ごとに商品数をカウント
 $product_counts = [];
 foreach ($stores as $store) {
   $stmt2 = $pdo->prepare("SELECT COUNT(*) FROM products WHERE store_id = ?");
@@ -25,26 +26,32 @@ foreach ($stores as $store) {
   <link rel="stylesheet" href="../assets/css/style.css?v=1"/>
 </head>
 <body>
+  <!-- サイト共通ヘッダー -->
   <header class="site-header">
     <h1 class="site-title font-english">SaleStreet</h1>
     <nav>
+      <!-- 店舗管理者用ログインボタン(一般ユーザは使用しない) -->
       <a href="login.php" class="loginbutton"><button class="admin-login">login</button></a>
+      <!-- メニューアイコン(機能未実装) -->
       <img class="naviikon" src="../assets/images/menu.svg" alt="menu">
     </nav>
   </header>
 
   <main>
     <h2 class="japanese-casual">店舗一覧</h2>
+    <!-- 店舗検索(実装はjavascript/shopsearch.js) -->
     <div class="search">
       <img class="searchikon" src="../assets/images/search.svg" alt="search">
       <input type="text" id="search" placeholder="住所で絞り込み（例：大阪府）"> 
     </div>
+    <!-- 店舗カードの表示 -->
     <div class="shop-list">
       <?php foreach ($stores as $store): ?>
         <a href="productlist.php?store_id=<?= htmlspecialchars($store['id']) ?>" class="shop-card-link">
           <div class="shop-card">
             <div class="shop-name"><?= htmlspecialchars($store['name']) ?></div>
             <div class="shop-address"><?= htmlspecialchars($store['address']) ?></div>
+            <!-- 9~14行目でカウントした商品数を表示 -->
             <div class="shop-info">セール中商品：<?= $product_counts[$store['id']] ?>件</div> 
           </div>
         </a>

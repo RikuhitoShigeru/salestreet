@@ -9,7 +9,7 @@ if (!$store_id) {
     exit;
 }
 
-// 該当店舗の商品を取得
+// 該当店舗のすべての商品を取得
 $stmt = $pdo->prepare("SELECT * FROM products WHERE store_id = ?");
 $stmt->execute([$store_id]);
 $products = $stmt->fetchAll();
@@ -32,20 +32,28 @@ $store = $storeStmt->fetch();
   <link rel="stylesheet" href="../assets/css/style.css?v=5" />
 </head>
 <body>
+  <!-- サイト共通ヘッダー -->
   <header class="site-header">
     <h1 class="site-title font-english">SaleStreet</h1>
     <nav>
+      <!-- 店舗管理者用ログインボタン(一般ユーザは使用しない) -->
       <a href="login.php"><button class="admin-login">login</button></a>
+      <!-- 検索アイコン(機能未実装) -->
       <img class="naviikon" src="../assets/images/search.svg" alt="search">
+      <!-- メニューアイコン(機能未実装) -->
       <img class="naviikon" src="../assets/images/menu.svg" alt="menu">
     </nav>
   </header>
+  <!-- 取得した店舗名を表示 -->
   <h2 class="japanese-casual"><?= htmlspecialchars($store['name'] ?? '店舗') ?>の商品一覧</h2>
 
   <div class="product-list">
+    <!-- 取得した商品の数が0の場合 -->
     <?php if (count($products) === 0): ?>
       <p>現在セール中の商品はありません。</p>
+    <!-- 取得した商品の数が1以上の場合 -->
     <?php else: ?>
+      <!-- 取得した商品をすべて表示 -->
       <?php foreach ($products as $product): ?>
         <div class="product-card">
           <div class="product-image-wrapper">

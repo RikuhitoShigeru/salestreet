@@ -66,8 +66,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['delete_id'])) {
   <h2>登録済みの商品一覧</h2>
 
   <div class="product-list">
+    <!-- 取得した商品の数が0の場合 -->
     <?php if (count($products) === 0): ?>
       <p>現在登録されている商品はありません。</p>
+    <!-- 取得した商品の数が1以上の場合 -->
     <?php else: ?>
       <?php foreach ($products as $product): ?>
         <div class="product-card">
